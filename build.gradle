@@ -1,0 +1,15 @@
+apply plugin: 'groovy'
+defaultTasks 'runScript'
+
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.4'
+}
+
+task runScript (dependsOn: 'classes', type: JavaExec) {
+    main = 'GroovyGradle'
+    classpath = sourceSets.main.runtimeClasspath
+}
